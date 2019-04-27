@@ -111,3 +111,4 @@ venv.bak/
 
 # API key file
 Alpha Advantage API.txt
+.vscode/settings.json
