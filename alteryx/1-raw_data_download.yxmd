@@ -39,7 +39,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\paulj\AppData\Local\Temp\Engine_13796_ce87832f2ce4484c9bc669c2f3faabc3_\Engine_17268_d12d2b77156d40bda3a19f74b6d3cd02_.yxdb</TempFile>
+          <TempFile>C:\Users\paulj\AppData\Local\Temp\Engine_18168_8018bfacf20f4e48a159006f52d858f9_\Engine_17268_f2f1bd11ea9744cc8b57ffb38d15e189_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -226,7 +226,7 @@ download = Replace([download], '&lt;symb...</DefaultAnnotationText>
           <URLField>download</URLField>
           <OutputMode>String</OutputMode>
           <CodePage>65001</CodePage>
-          <EncodeURLs value="True" />
+          <EncodeURLs value="False" />
           <Headers>
             <NameValues />
             <Fields orderChanged="False">
@@ -508,7 +508,7 @@ download = Replace([download], '&lt;symb...</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <NumRows value="3" />
+          <NumRows value="4" />
           <Fields>
             <Field name="symbol" />
           </Fields>
@@ -521,6 +521,9 @@ download = Replace([download], '&lt;symb...</DefaultAnnotationText>
             </r>
             <r>
               <c>AYX</c>
+            </r>
+            <r>
+              <c>GE</c>
             </r>
           </Data>
         </Configuration>
@@ -583,11 +586,40 @@ download = Replace([download], '&lt;symb...</DefaultAnnotationText>
           <DefaultAnnotationText>stocks-.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="378" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[RecordID] = 4</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordID</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-05-14 10:25:59</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <StartDate>2019-05-14 10:25:59</StartDate>
+              <EndDate>2019-05-14 10:25:59</EndDate>
+              <Operand>4</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[RecordID] = 4</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
   </Nodes>
   <Connections>
@@ -612,7 +644,7 @@ download = Replace([download], '&lt;symb...</DefaultAnnotationText>
       <Destination ToolID="8" Connection="Targets" />
     </Connection>
     <Connection>
-      <Origin ToolID="19" Connection="Output" />
+      <Origin ToolID="25" Connection="True" />
       <Destination ToolID="8" Connection="Source" />
     </Connection>
     <Connection>
@@ -672,6 +704,10 @@ download = Replace([download], '&lt;symb...</DefaultAnnotationText>
       <Destination ToolID="24" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
       <Origin ToolID="22" Connection="Output" />
       <Destination ToolID="19" Connection="Input" />
     </Connection>
@@ -694,7 +730,7 @@ download = Replace([download], '&lt;symb...</DefaultAnnotationText>
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>trading</Name>
+      <Name>1-raw_data_download</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
